@@ -13,13 +13,17 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navigationController: UINavigationController?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        let vc = BTTCNewsViewController();
-        let navigationController = UINavigationController(rootViewController: vc);
-        self.window.rootViewController = navigationController;
+        navigationController = UINavigationController()
+        let root = BTCTNewsTableViewController();
+        self.window!.rootViewController = root
+        
+        self.window!.backgroundColor = UIColor.whiteColor()
+        self.window!.makeKeyAndVisible()
+        
         return true
     }
 

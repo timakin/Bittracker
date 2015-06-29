@@ -8,16 +8,21 @@
 
 import UIKit
 
-class BTCTNewsTableViewController: UITableViewController {
+class BTCTNewsTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
+    
+    var items: [String] = ["バナナ", "みかん", "りんご", "ブドウ"]
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,18 +41,17 @@ class BTCTNewsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.items.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        cell.textLabel?.text = self.items[indexPath.row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
