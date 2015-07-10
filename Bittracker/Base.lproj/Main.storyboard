@@ -45,7 +45,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="CJw-PR-WE1"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="show" id="Xnr-97-FVy"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="toBTCTNewsViewController" id="Xnr-97-FVy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RM-bJ-XnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
