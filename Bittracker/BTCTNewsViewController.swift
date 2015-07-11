@@ -10,7 +10,7 @@ import UIKit
 
 class BTCTNewsViewController: UIViewController {
     @IBOutlet weak var uiwebview: UIWebView!
-    var targetURL = "http://liginc.co.jp"
+    var targetURL = "http://google.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()

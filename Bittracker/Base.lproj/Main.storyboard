@@ -16,12 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k3d-Fc-UaY">
+                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k3d-Fc-UaY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="664"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="k3d-Fc-UaY" secondAttribute="trailing" id="3Ng-DB-4EN"/>
+                            <constraint firstItem="k3d-Fc-UaY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="JiR-Cd-UcU"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="uiwebview" destination="k3d-Fc-UaY" id="Ojh-BZ-iWe"/>
@@ -31,7 +35,7 @@
             </objects>
             <point key="canvasLocation" x="991" y="575"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Top News Table View Controller-->
         <scene sceneID="sa9-fy-Qk4">
             <objects>
                 <tableViewController id="VwH-yc-aQw" customClass="BTCTTopNewsTableViewController" customModule="Bittracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,7 +56,7 @@
                             <outlet property="delegate" destination="VwH-yc-aQw" id="x98-si-9UU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="CJw-PR-WE1"/>
+                    <navigationItem key="navigationItem" id="CJw-PR-WE1"/>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="toBTCTNewsViewController" id="Xnr-97-FVy"/>
                     </connections>
