@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2916D46A1B2D225200937EFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2916D4691B2D225200937EFE /* AppDelegate.swift */; };
 		2916D46D1B2D225200937EFE /* Bittracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2916D46B1B2D225200937EFE /* Bittracker.xcdatamodeld */; };
-		2916D46F1B2D225200937EFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2916D46E1B2D225200937EFE /* ViewController.swift */; };
 		2916D4721B2D225200937EFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2916D4701B2D225200937EFE /* Main.storyboard */; };
 		2916D4741B2D225200937EFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2916D4731B2D225200937EFE /* Images.xcassets */; };
 		2916D4771B2D225200937EFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2916D4751B2D225200937EFE /* LaunchScreen.xib */; };
@@ -36,7 +35,6 @@
 		2916D4681B2D225200937EFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2916D4691B2D225200937EFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2916D46C1B2D225200937EFE /* Bittracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bittracker.xcdatamodel; sourceTree = "<group>"; };
-		2916D46E1B2D225200937EFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2916D4711B2D225200937EFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2916D4731B2D225200937EFE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2916D4761B2D225200937EFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				2916D4691B2D225200937EFE /* AppDelegate.swift */,
-				2916D46E1B2D225200937EFE /* ViewController.swift */,
 				2916D4701B2D225200937EFE /* Main.storyboard */,
 				2916D4731B2D225200937EFE /* Images.xcassets */,
 				2916D4751B2D225200937EFE /* LaunchScreen.xib */,
@@ -300,7 +297,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2916D46F1B2D225200937EFE /* ViewController.swift in Sources */,
 				77994BB41B510A6400C15B0C /* BTCTJSONParser.swift in Sources */,
 				77D3EDC11B42DDF60029A0BB /* BTCTNewsViewController.swift in Sources */,
 				2916D46D1B2D225200937EFE /* Bittracker.xcdatamodeld in Sources */,

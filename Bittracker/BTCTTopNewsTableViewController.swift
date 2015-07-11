@@ -11,15 +11,21 @@ import Alamofire
 import Alamofire_SwiftyJSON
 
 class BTCTTopNewsTableViewController: UITableViewController {
-    // セクションの数
-    let sectionNum = 1
-    // 1セクションあたりのセルの行数
-    let cellNum = 10
 
+    let sectionNum = 1
+    let cellNum = 10
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
+        if self.tableView.respondsToSelector("separatorInset") {
+            self.tableView.separatorInset = UIEdgeInsetsZero;
+        }
+        
+        if self.tableView.respondsToSelector("layoutMargins") {
+            self.tableView.layoutMargins = UIEdgeInsetsZero;
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,14 +49,25 @@ class BTCTTopNewsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
+
         return self.cellNum
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("BTCTTopNewsTableCell", forIndexPath: indexPath) as! UITableViewCell
-
         // Configure the cell...
-
+        if cell.respondsToSelector("separatorInset") {
+            cell.separatorInset = UIEdgeInsetsZero;
+        }
+        
+        if cell.respondsToSelector("preservesSuperviewLayoutMargins") {
+            cell.preservesSuperviewLayoutMargins = false;
+        }
+        
+        if cell.respondsToSelector("layoutMargins") {
+            cell.layoutMargins = UIEdgeInsetsZero;
+        }
+        
         return cell
     }
     
