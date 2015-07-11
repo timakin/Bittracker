@@ -58,6 +58,13 @@ class BTCTTopNewsTableViewController: UITableViewController {
         performSegueWithIdentifier("toBTCTNewsViewController", sender: nil)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "toBTCTNewsViewController") {
+            var newsViewController = segue.destinationViewController as! BTCTNewsViewController
+            newsViewController.url = NSURL(string: "http://google.com")
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

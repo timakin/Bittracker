@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qIO-AQ-NdP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--News View Controller-->
@@ -16,15 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k3d-Fc-UaY">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3d-Fc-UaY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="664"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="k3d-Fc-UaY" secondAttribute="trailing" id="3Ng-DB-4EN"/>
-                            <constraint firstItem="k3d-Fc-UaY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="JiR-Cd-UcU"/>
+                            <constraint firstItem="k3d-Fc-UaY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="DDt-HL-ClG"/>
+                            <constraint firstItem="k3d-Fc-UaY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="RCI-pL-KJb"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="k3d-Fc-UaY" secondAttribute="bottom" constant="-64" id="rmN-Ve-k6q"/>
+                            <constraint firstAttribute="trailing" secondItem="k3d-Fc-UaY" secondAttribute="trailing" id="sQ9-gp-qNX"/>
                         </constraints>
                     </view>
                     <connections>

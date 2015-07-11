@@ -10,12 +10,11 @@ import UIKit
 
 class BTCTNewsViewController: UIViewController {
     @IBOutlet weak var uiwebview: UIWebView!
-    var targetURL = "http://google.com"
+    var url : NSURL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let webURL = NSURL(string: targetURL)
-        let urlRequest = NSURLRequest(URL: webURL!)
+        let urlRequest = NSURLRequest(URL: url)
         uiwebview.loadRequest(urlRequest)
         // Do any additional setup after loading the view.
     }
