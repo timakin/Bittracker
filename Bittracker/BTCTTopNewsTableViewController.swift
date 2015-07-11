@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import Alamofire_SwiftyJSON
 
 class BTCTTopNewsTableViewController: UITableViewController {
     // セクションの数
@@ -16,6 +18,7 @@ class BTCTTopNewsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

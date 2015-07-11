@@ -1,0 +1,6 @@
+framework module Pods_Bittracker {
+  umbrella header "Pods-Bittracker-umbrella.h"
+
+  export *
+  module * { export * }
+}
