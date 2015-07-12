@@ -18,6 +18,7 @@
 		77994BB41B510A6400C15B0C /* BTCTJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77994BB31B510A6400C15B0C /* BTCTJSONParser.swift */; };
 		77D3EDBF1B42DDB50029A0BB /* BTCTTopNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D3EDBE1B42DDB50029A0BB /* BTCTTopNewsTableViewController.swift */; };
 		77D3EDC11B42DDF60029A0BB /* BTCTNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D3EDC01B42DDF60029A0BB /* BTCTNewsViewController.swift */; };
+		77DDB1741B52B6ED007B6787 /* BTCTTopNewsTableViewCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DDB1731B52B6ED007B6787 /* BTCTTopNewsTableViewCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		77994BB31B510A6400C15B0C /* BTCTJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCTJSONParser.swift; sourceTree = "<group>"; };
 		77D3EDBE1B42DDB50029A0BB /* BTCTTopNewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCTTopNewsTableViewController.swift; sourceTree = "<group>"; };
 		77D3EDC01B42DDF60029A0BB /* BTCTNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCTNewsViewController.swift; sourceTree = "<group>"; };
+		77DDB1731B52B6ED007B6787 /* BTCTTopNewsTableViewCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCTTopNewsTableViewCustomCell.swift; sourceTree = "<group>"; };
 		8B2453CA275195DEE3796D3D /* Pods-Bittracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bittracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bittracker/Pods-Bittracker.release.xcconfig"; sourceTree = "<group>"; };
 		E5A18395088117B9C8D80349 /* Pods-Bittracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bittracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bittracker/Pods-Bittracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 		2916D4661B2D225200937EFE /* Bittracker */ = {
 			isa = PBXGroup;
 			children = (
+				77DDB1701B52B4C3007B6787 /* View */,
 				772F8D991B5282F800102616 /* Model */,
 				2916D4691B2D225200937EFE /* AppDelegate.swift */,
 				2916D4701B2D225200937EFE /* Main.storyboard */,
@@ -99,8 +102,6 @@
 				2916D4751B2D225200937EFE /* LaunchScreen.xib */,
 				2916D46B1B2D225200937EFE /* Bittracker.xcdatamodeld */,
 				2916D4671B2D225200937EFE /* Supporting Files */,
-				77D3EDBE1B42DDB50029A0BB /* BTCTTopNewsTableViewController.swift */,
-				77D3EDC01B42DDF60029A0BB /* BTCTNewsViewController.swift */,
 				77994BB31B510A6400C15B0C /* BTCTJSONParser.swift */,
 			);
 			path = Bittracker;
@@ -145,6 +146,16 @@
 				772F8D9A1B52833100102616 /* News.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		77DDB1701B52B4C3007B6787 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77D3EDBE1B42DDB50029A0BB /* BTCTTopNewsTableViewController.swift */,
+				77D3EDC01B42DDF60029A0BB /* BTCTNewsViewController.swift */,
+				77DDB1731B52B6ED007B6787 /* BTCTTopNewsTableViewCustomCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		F8C002993C706491BF7CE99B /* Pods */ = {
@@ -308,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77DDB1741B52B6ED007B6787 /* BTCTTopNewsTableViewCustomCell.swift in Sources */,
 				772F8D9B1B52833100102616 /* News.swift in Sources */,
 				77994BB41B510A6400C15B0C /* BTCTJSONParser.swift in Sources */,
 				77D3EDC11B42DDF60029A0BB /* BTCTNewsViewController.swift in Sources */,

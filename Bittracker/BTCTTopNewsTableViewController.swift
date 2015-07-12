@@ -11,10 +11,11 @@ import Alamofire
 import Alamofire_SwiftyJSON
 
 class BTCTTopNewsTableViewController: UITableViewController {
+
     var topNewsDict = [NSDictionary]()
     var topNews : [News] = []
     let sectionNum = 1
-    let cellNum = 10
+    var cellNum : Int = 0
     let urlString = "http://cloud.feedly.com/v3/mixes/contents?streamId=feed%2Fhttp%3A%2F%2Fbtcnews.jp%2Ffeed%2F&count=10"
     
     override func viewDidLoad() {
@@ -33,14 +34,16 @@ class BTCTTopNewsTableViewController: UITableViewController {
                 for (var i = 0; i < json["items"].count; i++) {
                     var news = News()
                     
-                    news.title      = json["items"][i]["title"].stringValue
-                    news.uri        = json["items"][i]["originId"].stringValue
-                    news.origin     = json["items"][i]["origin"]["title"].stringValue
-                    news.image_uri  = json["items"][i]["visual"]["url"].stringValue
-                    news.created_at = json["items"][i]["created"].intValue
-                    
-                    self.topNews.append(news)
+                    if (json["items"][i]["visual"]["url"].stringValue != "none") {
+                        news.title      = json["items"][i]["title"].stringValue
+                        news.uri        = json["items"][i]["originId"].stringValue
+                        news.origin     = json["items"][i]["origin"]["title"].stringValue
+                        news.image_uri  = json["items"][i]["visual"]["url"].stringValue
+                        news.created_at = json["items"][i]["created"].intValue
+                        self.topNews.append(news)
+                    }
                 }
+                self.cellNum = self.topNews.count
                 self.tableView.reloadData()
             })
         
@@ -72,7 +75,7 @@ class BTCTTopNewsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("BTCTTopNewsTableCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("BTCTTopNewsTableCell", forIndexPath: indexPath) as! BTCTTopNewsTableViewCustomCell
         // Configure the cell...
         if cell.respondsToSelector("separatorInset") {
             cell.separatorInset = UIEdgeInsetsZero;
@@ -87,7 +90,13 @@ class BTCTTopNewsTableViewController: UITableViewController {
         }
         
         if !(self.topNews.isEmpty) {
-            cell.textLabel?.text = self.topNews[indexPath.row].title
+            cell.title.text = self.topNews[indexPath.row].title
+            if let url = NSURL(string: self.topNews[indexPath.row].image_uri) {
+                println(url)
+                var err: NSError?;
+                var imageData :NSData = NSData(contentsOfURL: url,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!;
+                cell.iconImage.image = UIImage(data: imageData)
+            }
         }
         
         return cell

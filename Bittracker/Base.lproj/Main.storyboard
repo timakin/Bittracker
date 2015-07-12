@@ -42,16 +42,39 @@
         <scene sceneID="sa9-fy-Qk4">
             <objects>
                 <tableViewController id="VwH-yc-aQw" customClass="BTCTTopNewsTableViewController" customModule="Bittracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fQT-uy-U2A">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" id="fQT-uy-U2A">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BTCTTopNewsTableCell" id="hcF-za-EzF">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="BTCTTopNewsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="BTCTTopNewsTableCell" rowHeight="85" id="hcF-za-EzF" customClass="BTCTTopNewsTableViewCustomCell" customModule="Bittracker" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcF-za-EzF" id="vH7-Fg-V3o">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FnA-xj-M5y">
+                                            <rect key="frame" x="0.0" y="0.0" width="115" height="84"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlo-Ec-TYa">
+                                            <rect key="frame" x="123" y="8" width="469" height="63"/>
+                                            <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" id="5aT-Sp-zRN"/>
+                                        <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leadingMargin" id="N5M-4R-gra"/>
+                                        <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leading" id="XFQ-em-3Od"/>
+                                        <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="bjE-P1-mhC"/>
+                                        <constraint firstAttribute="bottom" secondItem="FnA-xj-M5y" secondAttribute="bottom" id="e7v-jp-473"/>
+                                        <constraint firstItem="Nlo-Ec-TYa" firstAttribute="trailing" secondItem="vH7-Fg-V3o" secondAttribute="trailingMargin" id="mJC-eO-WzL"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="iconImage" destination="FnA-xj-M5y" id="jo6-rP-Ro9"/>
+                                    <outlet property="title" destination="Nlo-Ec-TYa" id="V42-KB-GJj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
