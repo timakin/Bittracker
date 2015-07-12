@@ -41,6 +41,7 @@ class BTCTTopNewsTableViewController: UITableViewController {
                     
                     self.topNews.append(news)
                 }
+                self.tableView.reloadData()
             })
         
         // Uncomment the following line to preserve selection between presentations
@@ -83,6 +84,10 @@ class BTCTTopNewsTableViewController: UITableViewController {
         
         if cell.respondsToSelector("layoutMargins") {
             cell.layoutMargins = UIEdgeInsetsZero;
+        }
+        
+        if !(self.topNews.isEmpty) {
+            cell.textLabel?.text = self.topNews[indexPath.row].title
         }
         
         return cell
