@@ -12,6 +12,7 @@ import Alamofire_SwiftyJSON
 
 class BTCTTopNewsTableViewController: UITableViewController {
     var topNewsDict = [NSDictionary]()
+    var topNews : [News] = []
     let sectionNum = 1
     let cellNum = 10
     let urlString = "http://cloud.feedly.com/v3/mixes/contents?streamId=feed%2Fhttp%3A%2F%2Fbtcnews.jp%2Ffeed%2F&count=10"
@@ -30,16 +31,15 @@ class BTCTTopNewsTableViewController: UITableViewController {
         Alamofire.request(.GET, urlString, parameters: nil)
             .responseSwiftyJSON({ (request, response, json, error) in
                 for (var i = 0; i < json["items"].count; i++) {
-                    self.topNewsDict.append([
-                        "title":      json["items"][i]["title"].stringValue,
-                        "uri":        json["items"][i]["originId"].stringValue,
-                        "origin":     json["items"][i]["origin"]["title"].stringValue,
-                        "image_uri":  json["items"][i]["visual"]["url"].stringValue,
-                        "updated_at": json["items"][i]["updated"].stringValue
-                    ])
+                    var news = News()
+                    news.title = json["items"][i]["title"].stringValue
+                    news.uri = json["items"][i]["originId"].stringValue
+                    news.origin = json["items"][i]["origin"]["title"].stringValue
+                    news.image_uri = json["items"][i]["visual"]["url"].stringValue
+                    news.created_at = json["items"][i]["created"].intValue
+                    
+                    self.topNews.append(news)
                 }
-                println(self.topNewsDict)
-
             })
         
         // Uncomment the following line to preserve selection between presentations
@@ -95,8 +95,8 @@ class BTCTTopNewsTableViewController: UITableViewController {
         if (segue.identifier == "toBTCTNewsViewController") {
             var newsViewController = segue.destinationViewController as! BTCTNewsViewController
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow() {
-                let urlString = self.topNewsDict[selectedIndexPath.row]["uri"] as? String
-                newsViewController.url = NSURL(string: urlString!)
+                let urlString = self.topNews[selectedIndexPath.row].uri
+                newsViewController.url = NSURL(string: urlString)
             }
         }
     }
