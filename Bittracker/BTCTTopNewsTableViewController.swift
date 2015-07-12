@@ -32,10 +32,11 @@ class BTCTTopNewsTableViewController: UITableViewController {
             .responseSwiftyJSON({ (request, response, json, error) in
                 for (var i = 0; i < json["items"].count; i++) {
                     var news = News()
-                    news.title = json["items"][i]["title"].stringValue
-                    news.uri = json["items"][i]["originId"].stringValue
-                    news.origin = json["items"][i]["origin"]["title"].stringValue
-                    news.image_uri = json["items"][i]["visual"]["url"].stringValue
+                    
+                    news.title      = json["items"][i]["title"].stringValue
+                    news.uri        = json["items"][i]["originId"].stringValue
+                    news.origin     = json["items"][i]["origin"]["title"].stringValue
+                    news.image_uri  = json["items"][i]["visual"]["url"].stringValue
                     news.created_at = json["items"][i]["created"].intValue
                     
                     self.topNews.append(news)
