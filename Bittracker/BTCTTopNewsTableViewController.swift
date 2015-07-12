@@ -34,10 +34,11 @@ class BTCTTopNewsTableViewController: UITableViewController {
                         "title":      json["items"][i]["title"].stringValue,
                         "uri":        json["items"][i]["originId"].stringValue,
                         "origin":     json["items"][i]["origin"]["title"].stringValue,
+                        "image_uri":  json["items"][i]["visual"]["url"].stringValue,
                         "updated_at": json["items"][i]["updated"].stringValue
                     ])
                 }
-                println(self.topNewsDict[2]["origin"]!)
+                println(self.topNewsDict)
 
             })
         
