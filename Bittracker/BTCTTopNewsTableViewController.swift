@@ -11,9 +11,10 @@ import Alamofire
 import Alamofire_SwiftyJSON
 
 class BTCTTopNewsTableViewController: UITableViewController {
-
+    var topNewsDict = [NSDictionary]()
     let sectionNum = 1
     let cellNum = 10
+    let urlString = "http://cloud.feedly.com/v3/mixes/contents?streamId=feed%2Fhttp%3A%2F%2Fbtcnews.jp%2Ffeed%2F&count=10"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,20 @@ class BTCTTopNewsTableViewController: UITableViewController {
         if self.tableView.respondsToSelector("layoutMargins") {
             self.tableView.layoutMargins = UIEdgeInsetsZero;
         }
+
+        Alamofire.request(.GET, urlString, parameters: nil)
+            .responseSwiftyJSON({ (request, response, json, error) in
+                for (var i = 0; i < json["items"].count; i++) {
+                    self.topNewsDict.append([
+                        "title":      json["items"][i]["title"].stringValue,
+                        "uri":        json["items"][i]["originId"].stringValue,
+                        "origin":     json["items"][i]["origin"]["title"].stringValue,
+                        "updated_at": json["items"][i]["updated"].stringValue
+                    ])
+                }
+                println(self.topNewsDict[2]["origin"]!)
+
+            })
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
