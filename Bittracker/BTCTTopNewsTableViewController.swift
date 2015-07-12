@@ -94,7 +94,10 @@ class BTCTTopNewsTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toBTCTNewsViewController") {
             var newsViewController = segue.destinationViewController as! BTCTNewsViewController
-            newsViewController.url = NSURL(string: "http://google.com")
+            if let selectedIndexPath = self.tableView.indexPathForSelectedRow() {
+                let urlString = self.topNewsDict[selectedIndexPath.row]["uri"] as? String
+                newsViewController.url = NSURL(string: urlString!)
+            }
         }
     }
     
