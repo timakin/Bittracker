@@ -1,11 +1,10 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '8.0'
+platform :ios, '8.3'
 use_frameworks!
 
 target 'Bittracker' do
   pod "AFNetworking", "~> 2.0"
-  pod 'Alamofire'
-  pod 'Alamofire-SwiftyJSON', :git => "https://github.com/SwiftyJSON/Alamofire-SwiftyJSON.git"
+  pod 'Alamofire', '~> 1.3'
   pod 'SwiftyJSON'
 end
 

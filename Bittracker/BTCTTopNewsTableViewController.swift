@@ -8,12 +8,12 @@
 
 import UIKit
 import Alamofire
-import Alamofire_SwiftyJSON
+import SwiftyJSON
 
 class BTCTTopNewsTableViewController: UITableViewController {
 
     var topNewsDict = [NSDictionary]()
-    var topNews : [News] = []
+    var topNews = [News]()
     let sectionNum = 1
     var cellNum : Int = 0
     let urlString = "http://cloud.feedly.com/v3/mixes/contents?streamId=feed%2Fhttp%3A%2F%2Fbtcnews.jp%2Ffeed%2F&count=10"
@@ -30,22 +30,25 @@ class BTCTTopNewsTableViewController: UITableViewController {
         }
 
         Alamofire.request(.GET, urlString, parameters: nil)
-            .responseSwiftyJSON({ (request, response, json, error) in
-                for (var i = 0; i < json["items"].count; i++) {
-                    var news = News()
-                    
-                    if (json["items"][i]["visual"]["url"].stringValue != "none") {
-                        news.title      = json["items"][i]["title"].stringValue
-                        news.uri        = json["items"][i]["originId"].stringValue
-                        news.origin     = json["items"][i]["origin"]["title"].stringValue
-                        news.image_uri  = json["items"][i]["visual"]["url"].stringValue
-                        news.created_at = json["items"][i]["created"].intValue
+            .responseJSON { _, _, raw_json, _ in
+                let json = JSON(raw_json!)
+                for (index: String, feed: JSON) in json["items"] {
+                    if (feed["visual"]["url"].stringValue != "none") {
+                        var news = News()
+                        news.title      = feed["title"].stringValue
+                        news.uri        = feed["originId"].stringValue
+                        news.origin     = feed["origin"]["title"].stringValue
+                        news.image_uri  = feed["visual"]["url"].stringValue
+                        news.created_at = feed["created"].intValue
                         self.topNews.append(news)
                     }
                 }
                 self.cellNum = self.topNews.count
+                println(self.topNews[1].title)
+                println(self.topNews[2].title)
                 self.tableView.reloadData()
-            })
+            }
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -90,9 +93,10 @@ class BTCTTopNewsTableViewController: UITableViewController {
         }
         
         if !(self.topNews.isEmpty) {
+            println(indexPath.row)
+            println(self.topNews[indexPath.row].title)
             cell.title.text = self.topNews[indexPath.row].title
             if let url = NSURL(string: self.topNews[indexPath.row].image_uri) {
-                println(url)
                 var err: NSError?;
                 var imageData :NSData = NSData(contentsOfURL: url,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!;
                 cell.iconImage.image = UIImage(data: imageData)
