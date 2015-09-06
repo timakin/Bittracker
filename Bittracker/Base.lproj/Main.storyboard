@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="991" y="575"/>
         </scene>
-        <!--Top News Table View Controller-->
+        <!--BTCT-->
         <scene sceneID="sa9-fy-Qk4">
             <objects>
                 <tableViewController id="VwH-yc-aQw" customClass="BTCTTopNewsTableViewController" customModule="Bittracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,8 +67,23 @@
                                                 </mask>
                                             </variation>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin関連のニュースの発行元はここ" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yec-bR-GXU">
+                                            <rect key="frame" x="436" y="59" width="156" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="Gz1-fq-qHV"/>
+                                                <constraint firstAttribute="height" constant="64" id="pvM-H1-LlE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="pvM-H1-LlE"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="記事のタイトル" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlo-Ec-TYa">
-                                            <rect key="frame" x="141" y="-5" width="458" height="59"/>
+                                            <rect key="frame" x="154" y="0.0" width="438" height="43"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="469" id="7Zs-nD-knI"/>
                                                 <constraint firstAttribute="width" constant="469" id="D5S-xN-QEx"/>
@@ -90,19 +105,22 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="01c-K9-Wio"/>
-                                        <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="topMargin" constant="-13" id="0TJ-kC-4MH"/>
+                                        <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="topMargin" constant="-8" id="0TJ-kC-4MH"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="topMargin" constant="-8" id="0jM-Vx-m2r"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" symbolic="YES" id="1aG-F9-3Ew"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="FnA-xj-M5y" secondAttribute="bottom" constant="8" id="2CS-3G-uGu"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="30" id="4S3-fd-tNQ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Nlo-Ec-TYa" secondAttribute="trailing" constant="-7" id="5TH-US-iB8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Nlo-Ec-TYa" secondAttribute="trailing" id="5TH-US-iB8"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" id="5aT-Sp-zRN"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="33" id="CIh-bB-6IL"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Nlo-Ec-TYa" secondAttribute="trailing" constant="-7" id="Dpd-Xi-cMb"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" symbolic="YES" id="GSu-Ry-40z"/>
+                                        <constraint firstItem="yec-bR-GXU" firstAttribute="top" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="40" id="HM4-t4-fob"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Nlo-Ec-TYa" secondAttribute="trailing" constant="-18" id="HQS-tU-xgv"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Nlo-Ec-TYa" secondAttribute="trailing" constant="-7" id="Jwr-8i-DGz"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="topMargin" constant="-17" id="LQQ-R9-a4K"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leadingMargin" id="N5M-4R-gra"/>
+                                        <constraint firstItem="yec-bR-GXU" firstAttribute="top" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="10" id="Nbz-Ad-TzE"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leadingMargin" constant="-8" id="PM7-Mt-Erl"/>
                                         <constraint firstAttribute="bottom" secondItem="FnA-xj-M5y" secondAttribute="bottom" id="PW9-D1-XlD"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="40" id="RuM-ev-3jh"/>
@@ -113,10 +131,11 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="Nlo-Ec-TYa" secondAttribute="trailing" constant="-7" id="bc0-sI-EjS"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="bjE-P1-mhC"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="topMargin" constant="-13" id="cHx-Od-0Th"/>
+                                        <constraint firstItem="yec-bR-GXU" firstAttribute="bottom" secondItem="vH7-Fg-V3o" secondAttribute="bottomMargin" constant="10" id="ce6-Lg-mr1"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="Nlo-Ec-TYa" secondAttribute="top" id="cwQ-Za-TyM"/>
                                         <constraint firstAttribute="bottom" secondItem="FnA-xj-M5y" secondAttribute="bottom" id="e7v-jp-473"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leading" id="f6t-Qb-Pya"/>
-                                        <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" symbolic="YES" id="gi1-dJ-Oc8"/>
+                                        <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="21" id="gi1-dJ-Oc8"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="jSK-gN-QYz"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="kTd-r1-QFk"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="lIN-IG-z8n"/>
@@ -124,11 +143,14 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="17" id="lko-mN-Ryx"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="FnA-xj-M5y" secondAttribute="top" id="mFB-4r-isb"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="trailing" secondItem="vH7-Fg-V3o" secondAttribute="trailingMargin" id="mJC-eO-WzL"/>
+                                        <constraint firstItem="yec-bR-GXU" firstAttribute="trailing" secondItem="vH7-Fg-V3o" secondAttribute="trailingMargin" id="ns9-2a-gHJ"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" symbolic="YES" id="pfs-Yj-2AU"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leading" id="pjP-10-rYu"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="Nlo-Ec-TYa" secondAttribute="top" id="qPW-zk-MdK"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="22" id="sWf-2J-2Nk"/>
+                                        <constraint firstItem="yec-bR-GXU" firstAttribute="trailing" secondItem="vH7-Fg-V3o" secondAttribute="trailingMargin" constant="10" id="ueM-se-UvU"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leading" id="y8v-PN-O6X"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="yec-bR-GXU" secondAttribute="bottom" constant="-8" id="ynQ-pN-BZf"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="22" id="zPX-Av-fVj"/>
                                     </constraints>
                                     <variation key="default">
@@ -166,12 +188,18 @@
                                             <exclude reference="mFB-4r-isb"/>
                                             <exclude reference="mJC-eO-WzL"/>
                                             <exclude reference="pfs-Yj-2AU"/>
+                                            <exclude reference="sWf-2J-2Nk"/>
                                             <exclude reference="zPX-Av-fVj"/>
+                                            <exclude reference="HM4-t4-fob"/>
+                                            <exclude reference="Nbz-Ad-TzE"/>
+                                            <exclude reference="ce6-Lg-mr1"/>
+                                            <exclude reference="ueM-se-UvU"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="iconImage" destination="FnA-xj-M5y" id="jo6-rP-Ro9"/>
+                                    <outlet property="origin" destination="yec-bR-GXU" id="DwO-HN-Ki1"/>
                                     <outlet property="title" destination="Nlo-Ec-TYa" id="V42-KB-GJj"/>
                                 </connections>
                             </tableViewCell>
@@ -181,7 +209,7 @@
                             <outlet property="delegate" destination="VwH-yc-aQw" id="x98-si-9UU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CJw-PR-WE1"/>
+                    <navigationItem key="navigationItem" title="BTCT" id="CJw-PR-WE1"/>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="toBTCTNewsViewController" id="Xnr-97-FVy"/>
                     </connections>

@@ -16,6 +16,10 @@ class BTCTTopNewsTableViewController: UITableViewController {
     var topNews = [News]()
     let sectionNum = 1
     var cellNum : Int = 0
+    let targetUrls = [
+        "http://cloud.feedly.com/v3/mixes/contents?streamId=feed%2Fhttp%3A%2F%2Fbtcnews.jp%2Ffeed%2F&count=10",
+        "http://cloud.feedly.com/v3/mixes/contents?streamId=feed%2Fhttp%3A%2F%2Fnews.bitflyer.jp%2Ffeed%2F&count=10"
+    ]
     let urlString = "http://cloud.feedly.com/v3/mixes/contents?streamId=feed%2Fhttp%3A%2F%2Fbtcnews.jp%2Ffeed%2F&count=10"
     
     override func viewDidLoad() {
@@ -29,6 +33,7 @@ class BTCTTopNewsTableViewController: UITableViewController {
             self.tableView.layoutMargins = UIEdgeInsetsZero;
         }
 
+        
         Alamofire.request(.GET, urlString, parameters: nil)
             .responseJSON { _, _, raw_json, _ in
                 let json = JSON(raw_json!)
@@ -39,13 +44,11 @@ class BTCTTopNewsTableViewController: UITableViewController {
                         news.uri        = feed["originId"].stringValue
                         news.origin     = feed["origin"]["title"].stringValue
                         news.image_uri  = feed["visual"]["url"].stringValue
-                        news.created_at = feed["created"].intValue
+                        news.created_at = feed["published"].intValue
                         self.topNews.append(news)
                     }
                 }
                 self.cellNum = self.topNews.count
-                println(self.topNews[1].title)
-                println(self.topNews[2].title)
                 self.tableView.reloadData()
             }
         
@@ -93,13 +96,13 @@ class BTCTTopNewsTableViewController: UITableViewController {
         }
         
         if !(self.topNews.isEmpty) {
-            println(indexPath.row)
-            println(self.topNews[indexPath.row].title)
             cell.title.text = self.topNews[indexPath.row].title
             if let url = NSURL(string: self.topNews[indexPath.row].image_uri) {
                 var err: NSError?;
                 var imageData :NSData = NSData(contentsOfURL: url,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!;
                 cell.iconImage.image = UIImage(data: imageData)
+                cell.origin.text = self.topNews[indexPath.row].origin
+
             }
         }
         

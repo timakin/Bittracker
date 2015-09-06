@@ -12,6 +12,7 @@ import Foundation
 class BTCTTopNewsTableViewCustomCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet weak var origin: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
