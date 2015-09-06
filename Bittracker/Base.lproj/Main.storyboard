@@ -53,10 +53,11 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcF-za-EzF" id="vH7-Fg-V3o">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FnA-xj-M5y">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FnA-xj-M5y">
                                             <rect key="frame" x="0.0" y="0.0" width="133" height="84"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="115" id="V5U-TC-k8i"/>
+                                                <constraint firstAttribute="width" constant="133" id="nG5-a0-6Pe"/>
                                                 <constraint firstAttribute="width" secondItem="FnA-xj-M5y" secondAttribute="height" multiplier="115:84" id="tpS-Qm-XwQ"/>
                                             </constraints>
                                             <variation key="default">
@@ -66,8 +67,8 @@
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="記事のタイトル" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlo-Ec-TYa">
-                                            <rect key="frame" x="141" y="-5" width="451" height="59"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="記事のタイトル" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlo-Ec-TYa">
+                                            <rect key="frame" x="141" y="-5" width="458" height="59"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="469" id="7Zs-nD-knI"/>
                                                 <constraint firstAttribute="width" constant="469" id="D5S-xN-QEx"/>
@@ -75,7 +76,7 @@
                                                 <constraint firstAttribute="width" constant="469" id="joS-0e-hn6"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -89,10 +90,12 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="01c-K9-Wio"/>
+                                        <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="topMargin" constant="-13" id="0TJ-kC-4MH"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="topMargin" constant="-8" id="0jM-Vx-m2r"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" symbolic="YES" id="1aG-F9-3Ew"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="FnA-xj-M5y" secondAttribute="bottom" constant="8" id="2CS-3G-uGu"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="30" id="4S3-fd-tNQ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Nlo-Ec-TYa" secondAttribute="trailing" constant="-7" id="5TH-US-iB8"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" id="5aT-Sp-zRN"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Nlo-Ec-TYa" secondAttribute="trailing" constant="-7" id="Dpd-Xi-cMb"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" symbolic="YES" id="GSu-Ry-40z"/>
@@ -106,12 +109,15 @@
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leading" id="XFQ-em-3Od"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="topMargin" constant="8" id="Xoh-gN-s0D"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" id="Y6B-sT-qzu"/>
+                                        <constraint firstAttribute="bottom" secondItem="FnA-xj-M5y" secondAttribute="bottom" id="b3h-gx-0sS"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Nlo-Ec-TYa" secondAttribute="trailing" constant="-7" id="bc0-sI-EjS"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="bjE-P1-mhC"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="topMargin" constant="-13" id="cHx-Od-0Th"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="Nlo-Ec-TYa" secondAttribute="top" id="cwQ-Za-TyM"/>
                                         <constraint firstAttribute="bottom" secondItem="FnA-xj-M5y" secondAttribute="bottom" id="e7v-jp-473"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leading" id="f6t-Qb-Pya"/>
+                                        <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" symbolic="YES" id="gi1-dJ-Oc8"/>
+                                        <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="jSK-gN-QYz"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="kTd-r1-QFk"/>
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="top" secondItem="vH7-Fg-V3o" secondAttribute="top" id="lIN-IG-z8n"/>
                                         <constraint firstAttribute="bottom" secondItem="FnA-xj-M5y" secondAttribute="bottom" id="lLD-cM-94O"/>
@@ -121,6 +127,8 @@
                                         <constraint firstItem="Nlo-Ec-TYa" firstAttribute="leading" secondItem="FnA-xj-M5y" secondAttribute="trailing" constant="8" symbolic="YES" id="pfs-Yj-2AU"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leading" id="pjP-10-rYu"/>
                                         <constraint firstItem="FnA-xj-M5y" firstAttribute="top" secondItem="Nlo-Ec-TYa" secondAttribute="top" id="qPW-zk-MdK"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="22" id="sWf-2J-2Nk"/>
+                                        <constraint firstItem="FnA-xj-M5y" firstAttribute="leading" secondItem="vH7-Fg-V3o" secondAttribute="leading" id="y8v-PN-O6X"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Nlo-Ec-TYa" secondAttribute="bottom" constant="22" id="zPX-Av-fVj"/>
                                     </constraints>
                                     <variation key="default">
