@@ -6,6 +6,7 @@ target 'Bittracker' do
   pod "AFNetworking", "~> 2.0"
   pod 'Alamofire', '~> 1.3'
   pod 'SwiftyJSON'
+  pod 'ReactKit'
 end
 
 target 'BittrackerTests' do

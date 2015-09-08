@@ -94,9 +94,8 @@
 		2916D4661B2D225200937EFE /* Bittracker */ = {
 			isa = PBXGroup;
 			children = (
+				293CA8031B9DE0CE00BCEF63 /* ViewModel */,
 				293CA8021B9C9E0600BCEF63 /* ViewController */,
-				77D3EDBE1B42DDB50029A0BB /* BTCTTopNewsTableViewController.swift */,
-				77D3EDC01B42DDF60029A0BB /* BTCTNewsViewController.swift */,
 				77DDB1701B52B4C3007B6787 /* View */,
 				772F8D991B5282F800102616 /* Model */,
 				2916D4691B2D225200937EFE /* AppDelegate.swift */,
@@ -138,8 +137,17 @@
 		293CA8021B9C9E0600BCEF63 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				77D3EDC01B42DDF60029A0BB /* BTCTNewsViewController.swift */,
+				77D3EDBE1B42DDB50029A0BB /* BTCTTopNewsTableViewController.swift */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		293CA8031B9DE0CE00BCEF63 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		76DA9B4BB0724B08E887006F /* Frameworks */ = {
