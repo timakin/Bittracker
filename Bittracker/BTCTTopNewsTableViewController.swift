@@ -42,49 +42,36 @@ class BTCTTopNewsTableViewController: UITableViewController {
         for (var i = 0; i < targetUrls.count; i++) {
             let task = AlamoFireTask { progress, fulfill, reject, configure in
                 Alamofire.request(.GET, targetUrls[i], parameters: nil)
-                .responseJSON { _, _, raw_json, _ in
+                    .responseJSON { _, _, raw_json, _ in
                     let json = JSON(raw_json!)
                     for (index: String, feed: JSON) in json["items"] {
-                        if (feed["visual"]["url"].stringValue != "none") {
+                        if (feed["visual"]["url"].stringValue != "none" && feed["visual"]["url"] != nil) {
                             var news = News()
                             news.title      = feed["title"].stringValue
                             news.uri        = feed["originId"].stringValue
                             news.origin     = feed["origin"]["title"].stringValue
                             news.image_uri  = feed["visual"]["url"].stringValue
                             news.created_at = feed["published"].intValue
+                            self.topNews.append(news)
                         }
                     }
+                    self.cellNum = self.topNews.count
+                    self.topNews = sorted(self.topNews) { $0.created_at > $1.created_at }
+                    self.tableView.reloadData()
                 }
             };
             tasks.append(task);
         }
-        Task.all(tasks).progress {
-            oldProgress, newProgress in
-            println("When is this line executed?")
-            }.success { value -> Void in
+        Task.all(tasks).progress { (oldProgress: Task.BulkProgress?, newProgress: Task.BulkProgress) in
+            
+            print("all progress = \(newProgress.completedCount) / \(newProgress.totalCount)")
+            
+            }.success { values -> Void in
                 self.cellNum = self.topNews.count
                 self.tableView.reloadData()
-            }.failure { (error: NSError?, isCancelled: Bool) -> Void in
-                println(error)
+                
         }
         
-        Alamofire.request(.GET, urlString, parameters: nil)
-            .responseJSON { _, _, raw_json, _ in
-                let json = JSON(raw_json!)
-                for (index: String, feed: JSON) in json["items"] {
-                    if (feed["visual"]["url"].stringValue != "none" && feed["visual"]["url"] != nil) {
-                        var news = News()
-                        news.title      = feed["title"].stringValue
-                        news.uri        = feed["originId"].stringValue
-                        news.origin     = feed["origin"]["title"].stringValue
-                        news.image_uri  = feed["visual"]["url"].stringValue
-                        news.created_at = feed["published"].intValue
-                        self.topNews.append(news)
-                    }
-                }
-                self.cellNum = self.topNews.count
-                self.tableView.reloadData()
-            }
         
         
         // Uncomment the following line to preserve selection between presentations
