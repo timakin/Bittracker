@@ -10,7 +10,7 @@ import Foundation
 
 class News {
     var _title : String = ""
-    var _uri : String = ""
+    var _url : String = ""
     var _origin : String = ""
     var _image_uri : String = ""
     var _created_at : Int = 0
@@ -23,12 +23,12 @@ class News {
             _title = newValue
         }
     }
-    var uri : String{
+    var url : String{
         get{
-            return _uri
+            return _url
         }
         set(newValue){
-            _uri = newValue
+            _url = newValue
         }
     }
     var origin : String{
