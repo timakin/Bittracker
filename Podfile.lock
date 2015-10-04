@@ -21,6 +21,25 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Alamofire (1.3.1)
+  - OMGHTTPURLRQ (2.1.3):
+    - OMGHTTPURLRQ/RQ (= 2.1.3)
+  - OMGHTTPURLRQ/FormURLEncode (2.1.3)
+  - OMGHTTPURLRQ/RQ (2.1.3):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/UserAgent (2.1.3)
+  - PromiseKit (2.2.2):
+    - PromiseKit/Foundation (= 2.2.2)
+    - PromiseKit/QuartzCore (= 2.2.2)
+    - PromiseKit/UIKit (= 2.2.2)
+  - PromiseKit/CorePromise (2.2.2)
+  - PromiseKit/Foundation (2.2.2):
+    - OMGHTTPURLRQ (~> 2.1.3)
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (2.2.2):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (2.2.2):
+    - PromiseKit/CorePromise
   - ReactKit (0.11.4):
     - SwiftTask (~> 3.3.1)
   - SwiftTask (3.3.1)
@@ -29,12 +48,24 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - Alamofire (~> 1.3)
+  - PromiseKit (from `https://github.com/mxcl/PromiseKit.git`)
   - ReactKit
   - SwiftyJSON
+
+EXTERNAL SOURCES:
+  PromiseKit:
+    :git: https://github.com/mxcl/PromiseKit.git
+
+CHECKOUT OPTIONS:
+  PromiseKit:
+    :commit: 86e5641bb0998bdc260e5bf6fb4fa6f2a0edc91f
+    :git: https://github.com/mxcl/PromiseKit.git
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
+  OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
+  PromiseKit: e05634c42d44a32597053f7e2c693fbcac61ed01
   ReactKit: 47da6a289a5ddb4fee19efc026739f0560cd4e1d
   SwiftTask: 0baec4571e2ea235e73817c399cde12056c81f6f
   SwiftyJSON: 0b3e6c07af17ff745e77e8e9984097b55c956e5c

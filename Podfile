@@ -7,6 +7,7 @@ target 'Bittracker' do
   pod 'Alamofire', '~> 1.3'
   pod 'SwiftyJSON'
   pod 'ReactKit'
+  pod "PromiseKit", git: "https://github.com/mxcl/PromiseKit.git"
 end
 
 target 'BittrackerTests' do

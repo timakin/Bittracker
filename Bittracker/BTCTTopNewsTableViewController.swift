@@ -10,16 +10,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SwiftTask
+import PromiseKit
 
 class BTCTTopNewsTableViewController: UITableViewController {
     
-    var topNewsDict = [NSDictionary]()
     var topNews = [News]()
     let sectionNum = 1
     var cellNum : Int = 0
-    let urlString = "https://btct-news-api.herokuapp.com/api/v1/news/jp"
-    typealias Progress = (bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
-    typealias AlamoFireTask = Task<Progress, String, NSError>
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,29 +29,25 @@ class BTCTTopNewsTableViewController: UITableViewController {
             self.tableView.layoutMargins = UIEdgeInsetsZero;
         }
         
-        let task = AlamoFireTask { progress, fulfill, reject, configure in
-            Alamofire.request(.GET, urlString, parameters: nil)
-                .responseJSON { _, _, raw_json, _ in
-                    let json = JSON(raw_json!)
-                    for (index: String, feed: JSON) in json["response"] {
-                        var news = News()
-                        news.title      = feed["title"].stringValue
-                        news.url        = feed["url"].stringValue
-                        news.origin     = feed["origin"].stringValue
-                        news.image_uri  = feed["image_uri"].stringValue
-                        news.created_at = feed["created_at"].intValue
-                        self.topNews.append(news)
-                    }
-                    self.cellNum = self.topNews.count
-                    self.tableView.reloadData()
-            }
-        };
+        let urlString = "https://btct-news-api.herokuapp.com/api/v1/news/jp"
         
-        task.success { values -> Void in
-            self.cellNum = self.topNews.count
-            self.tableView.reloadData()
+        Alamofire.request(.GET, urlString, parameters: nil)
+            .responseJSON { _, _, data, err in
+                let json = JSON(data!)
+                var newsCollection = [News]()
+                for (index: String, feed: JSON) in json["response"] {
+                    var news = News()
+                    news.title      = feed["title"].stringValue
+                    news.url        = feed["url"].stringValue
+                    news.origin     = feed["origin"].stringValue
+                    news.image_uri  = feed["image_uri"].stringValue
+                    news.created_at = feed["created_at"].intValue
+                    newsCollection.append(news)
+                }
+                self.topNews = newsCollection
+                self.cellNum = self.topNews.count
+                self.tableView.reloadData()
         }
-        
         
         
         // Uncomment the following line to preserve selection between presentations
