@@ -29,7 +29,7 @@ class BTCTTopNewsTableViewController: UITableViewController {
             self.tableView.layoutMargins = UIEdgeInsetsZero;
         }
         
-        let urlString = "https://btct-news-api.herokuapp.com/api/v1/news/jp"
+        let urlString = "https://btct-news-api.herokuapp.com/api/v1/news?country=jp"
         
         Alamofire.request(.GET, urlString, parameters: nil)
             .responseJSON { _, _, data, err in
