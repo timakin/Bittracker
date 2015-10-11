@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SwiftTask
 import PromiseKit
+import SVProgressHUD
 
 class BTCTTopNewsTableViewController: UITableViewController {
     
@@ -33,8 +34,9 @@ class BTCTTopNewsTableViewController: UITableViewController {
         self.refreshControl!.attributedTitle = NSAttributedString(string: "Reload")
         self.refreshControl!.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
-        
-        loadBTCTNews()
+    
+        SVProgressHUD.showWithStatus("読み込み中")
+        self.loadBTCTNews()
 
         
         // Uncomment the following line to preserve selection between presentations
@@ -42,6 +44,14 @@ class BTCTTopNewsTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func dispatch_async_main(block: () -> ()) {
+        dispatch_async(dispatch_get_main_queue(), block)
+    }
+    
+    func dispatch_async_global(block: () -> ()) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
     }
     
     override func didReceiveMemoryWarning() {
@@ -116,6 +126,12 @@ class BTCTTopNewsTableViewController: UITableViewController {
         
         Alamofire.request(.GET, urlString, parameters: nil)
             .responseJSON { _, _, data, err in
+                if let error = err {
+                    if SVProgressHUD.isVisible() {
+                        SVProgressHUD.showErrorWithStatus("失敗!")
+                    }
+                }
+                
                 let json = JSON(data!)
                 var newsCollection = [News]()
                 for (index: String, feed: JSON) in json["response"] {
@@ -134,6 +150,10 @@ class BTCTTopNewsTableViewController: UITableViewController {
                 if self.refreshControl!.refreshing
                 {
                     self.refreshControl!.endRefreshing()
+                }
+                
+                if SVProgressHUD.isVisible() {
+                    SVProgressHUD.showSuccessWithStatus("成功!")
                 }
                 
                 self.tableView.reloadData()

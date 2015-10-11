@@ -8,6 +8,7 @@ target 'Bittracker' do
   pod 'SwiftyJSON'
   pod 'ReactKit'
   pod "PromiseKit", git: "https://github.com/mxcl/PromiseKit.git"
+  pod 'SVProgressHUD'
 end
 
 target 'BittrackerTests' do
