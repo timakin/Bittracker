@@ -35,6 +35,7 @@ class BTCTTopNewsTableViewController: UITableViewController {
         self.refreshControl!.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl!)
     
+        SVProgressHUD.setFont(UIFont(name: "HiraKakuProN-W3", size: 18))
         SVProgressHUD.showWithStatus("読み込み中")
         self.loadBTCTNews()
 
