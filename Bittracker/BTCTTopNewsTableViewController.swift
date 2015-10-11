@@ -29,26 +29,13 @@ class BTCTTopNewsTableViewController: UITableViewController {
             self.tableView.layoutMargins = UIEdgeInsetsZero;
         }
         
-        let urlString = "https://btct-news-api.herokuapp.com/api/v1/news?country=jp"
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.attributedTitle = NSAttributedString(string: "Reload")
+        self.refreshControl!.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl!)
         
-        Alamofire.request(.GET, urlString, parameters: nil)
-            .responseJSON { _, _, data, err in
-                let json = JSON(data!)
-                var newsCollection = [News]()
-                for (index: String, feed: JSON) in json["response"] {
-                    var news = News()
-                    news.title      = feed["title"].stringValue
-                    news.url        = feed["url"].stringValue
-                    news.origin     = feed["origin"].stringValue
-                    news.image_uri  = feed["image_uri"].stringValue
-                    news.created_at = feed["created_at"].intValue
-                    newsCollection.append(news)
-                }
-                self.topNews = newsCollection
-                self.cellNum = self.topNews.count
-                self.tableView.reloadData()
-        }
-        
+        loadBTCTNews()
+
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -117,6 +104,39 @@ class BTCTTopNewsTableViewController: UITableViewController {
                 let urlString = self.topNews[selectedIndexPath.row].url
                 newsViewController.url = NSURL(string: urlString)
             }
+        }
+    }
+    
+    func refresh() {
+        loadBTCTNews()
+    }
+    
+    func loadBTCTNews() {
+        let urlString = "https://btct-news-api.herokuapp.com/api/v1/news?country=jp"
+        
+        Alamofire.request(.GET, urlString, parameters: nil)
+            .responseJSON { _, _, data, err in
+                let json = JSON(data!)
+                var newsCollection = [News]()
+                for (index: String, feed: JSON) in json["response"] {
+                    var news = News()
+                    news.title      = feed["title"].stringValue
+                    news.url        = feed["url"].stringValue
+                    news.origin     = feed["origin"].stringValue
+                    news.image_uri  = feed["image_uri"].stringValue
+                    news.created_at = feed["created_at"].intValue
+                    newsCollection.append(news)
+                }
+                
+                self.topNews = newsCollection
+                self.cellNum = self.topNews.count
+
+                if self.refreshControl!.refreshing
+                {
+                    self.refreshControl!.endRefreshing()
+                }
+                
+                self.tableView.reloadData()
         }
     }
     
