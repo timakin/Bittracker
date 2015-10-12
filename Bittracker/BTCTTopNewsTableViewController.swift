@@ -12,6 +12,7 @@ import SwiftyJSON
 import SwiftTask
 import PromiseKit
 import SVProgressHUD
+import SDWebImage
 
 class BTCTTopNewsTableViewController: UITableViewController {
     
@@ -92,13 +93,11 @@ class BTCTTopNewsTableViewController: UITableViewController {
         
         if !(self.topNews.isEmpty) {
             cell.title.text = self.topNews[indexPath.row].title
-            if let url = NSURL(string: self.topNews[indexPath.row].image_uri) {
-                var err: NSError?;
-                var imageData :NSData = NSData(contentsOfURL: url,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!;
-                cell.iconImage.image = UIImage(data: imageData)
+                println(self.topNews[indexPath.row].image_uri)
+                let imageURL = NSURL(string: self.topNews[indexPath.row].image_uri)
+                cell.iconImage.sd_setImageWithURL(imageURL)
                 cell.origin.text = self.topNews[indexPath.row].origin
-                
-            }
+            
         }
         
         return cell
@@ -148,16 +147,17 @@ class BTCTTopNewsTableViewController: UITableViewController {
                 self.topNews = newsCollection
                 self.cellNum = self.topNews.count
 
-                if self.refreshControl!.refreshing
-                {
-                    self.refreshControl!.endRefreshing()
-                }
-                
+
                 if SVProgressHUD.isVisible() {
                     SVProgressHUD.showSuccessWithStatus("成功!")
                 }
                 
                 self.tableView.reloadData()
+                
+                if self.refreshControl!.refreshing
+                {
+                    self.refreshControl!.endRefreshing()
+                }
         }
     }
     

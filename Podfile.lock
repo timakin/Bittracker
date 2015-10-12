@@ -42,6 +42,9 @@ PODS:
     - PromiseKit/CorePromise
   - ReactKit (0.11.4):
     - SwiftTask (~> 3.3.1)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
   - SVProgressHUD (1.1.3)
   - SwiftTask (3.3.1)
   - SwiftyJSON (2.2.0)
@@ -51,6 +54,7 @@ DEPENDENCIES:
   - Alamofire (~> 1.3)
   - PromiseKit (from `https://github.com/mxcl/PromiseKit.git`)
   - ReactKit
+  - SDWebImage
   - SVProgressHUD
   - SwiftyJSON
 
@@ -69,6 +73,7 @@ SPEC CHECKSUMS:
   OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
   PromiseKit: e05634c42d44a32597053f7e2c693fbcac61ed01
   ReactKit: 47da6a289a5ddb4fee19efc026739f0560cd4e1d
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SwiftTask: 0baec4571e2ea235e73817c399cde12056c81f6f
   SwiftyJSON: 0b3e6c07af17ff745e77e8e9984097b55c956e5c
