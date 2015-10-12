@@ -122,43 +122,23 @@ class BTCTTopNewsTableViewController: UITableViewController {
     }
     
     func loadBTCTNews() {
-        let urlString = "https://btct-news-api.herokuapp.com/api/v1/news?country=jp"
-        
-        Alamofire.request(.GET, urlString, parameters: nil)
-            .responseJSON { _, _, data, err in
-                if let error = err {
-                    if SVProgressHUD.isVisible() {
-                        SVProgressHUD.showErrorWithStatus("失敗!")
-                    }
-                }
-                
-                let json = JSON(data!)
-                var newsCollection = [News]()
-                for (index: String, feed: JSON) in json["response"] {
-                    var news = News()
-                    news.title      = feed["title"].stringValue
-                    news.url        = feed["url"].stringValue
-                    news.origin     = feed["origin"].stringValue
-                    news.image_uri  = feed["image_uri"].stringValue
-                    news.created_at = feed["created_at"].intValue
-                    newsCollection.append(news)
-                }
-                
-                self.topNews = newsCollection
-                self.cellNum = self.topNews.count
-
-
-                if SVProgressHUD.isVisible() {
-                    SVProgressHUD.showSuccessWithStatus("成功!")
-                }
-                
-                self.tableView.reloadData()
-                
-                if self.refreshControl!.refreshing
-                {
-                    self.refreshControl!.endRefreshing()
-                }
-        }
+        let viewModel = BTCTTopNewsViewModel()
+        viewModel.getCollection({ newsCollection in
+            self.topNews = newsCollection
+            self.cellNum = self.topNews.count
+            
+            
+            if SVProgressHUD.isVisible() {
+                SVProgressHUD.showSuccessWithStatus("成功!")
+            }
+            
+            self.tableView.reloadData()
+            
+            if self.refreshControl!.refreshing
+            {
+                self.refreshControl!.endRefreshing()
+            }
+        })
     }
     
     /*
