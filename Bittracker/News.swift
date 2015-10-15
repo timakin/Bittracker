@@ -9,50 +9,17 @@
 import Foundation
 
 class News {
-    var _title : String = ""
-    var _url : String = ""
-    var _origin : String = ""
-    var _image_uri : String = ""
-    var _created_at : Int = 0
+    let title : String
+    let url : String
+    let origin : String
+    let image_uri : String
+    let created_at : Int
     
-    var title : String{
-        get{
-            return _title
-        }
-        set(newValue){
-            _title = newValue
-        }
-    }
-    var url : String{
-        get{
-            return _url
-        }
-        set(newValue){
-            _url = newValue
-        }
-    }
-    var origin : String{
-        get{
-            return _origin
-        }
-        set(newValue){
-            _origin = newValue
-        }
-    }
-    var image_uri : String{
-        get{
-            return _image_uri
-        }
-        set(newValue){
-            _image_uri = newValue
-        }
-    }
-    var created_at : Int {
-        get{
-            return _created_at
-        }
-        set(newValue){
-            _created_at = newValue
-        }
+    init(title: String, url : String, origin : String, image_uri : String, created_at : Int) {
+        self.title = title
+        self.url = url
+        self.origin = origin
+        self.image_uri = image_uri
+        self.created_at = created_at
     }
 }

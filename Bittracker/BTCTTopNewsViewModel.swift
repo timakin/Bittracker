@@ -26,12 +26,14 @@ class BTCTTopNewsViewModel {
                 let json = JSON(data!)
                 var newsCollection = [News]()
                 for (index: String, feed: JSON) in json["response"] {
-                    var news = News()
-                    news.title      = feed["title"].stringValue
-                    news.url        = feed["url"].stringValue
-                    news.origin     = feed["origin"].stringValue
-                    news.image_uri  = feed["image_uri"].stringValue
-                    news.created_at = feed["created_at"].intValue
+                    let news = News(
+                        title: feed["title"].stringValue,
+                        url: feed["url"].stringValue,
+                        origin: feed["origin"].stringValue,
+                        image_uri: feed["image_uri"].stringValue,
+                        created_at: feed["created_at"].intValue
+                    )
+                    
                     newsCollection.append(news)
                 }
                 
