@@ -38,6 +38,7 @@ class BTCTTopNewsTableViewController: UITableViewController {
     
         SVProgressHUD.setFont(UIFont(name: "HiraKakuProN-W3", size: 18))
         SVProgressHUD.showWithStatus("読み込み中")
+        
         self.loadBTCTNews()
 
         
@@ -93,10 +94,9 @@ class BTCTTopNewsTableViewController: UITableViewController {
         
         if !(self.topNews.isEmpty) {
             cell.title.text = self.topNews[indexPath.row].title
-                println(self.topNews[indexPath.row].image_uri)
-                let imageURL = NSURL(string: self.topNews[indexPath.row].image_uri)
-                cell.iconImage.sd_setImageWithURL(imageURL)
-                cell.origin.text = self.topNews[indexPath.row].origin
+            let imageURL = NSURL(string: self.topNews[indexPath.row].image_uri)
+            cell.iconImage.sd_setImageWithURL(imageURL)
+            cell.origin.text = self.topNews[indexPath.row].origin
             
         }
         
